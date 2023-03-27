@@ -44,9 +44,9 @@ Now, sprinkle in a little bit of GPT3 and we can tell the model about the schema
 
 In particular there’s one type that we’ve designed in such a way that Claude, GPT3.5 (and sometimes GPT4) *fail in the exact same way.* They both hallucinate the equals expression above to use the kind ‘FieldEquals’ rather than ‘Equals’ and they struggle to correct themselves when further prompted:
 
-![GPT3.5 playing gaslighter in chief](https://user-images.githubusercontent.com/77915/227919924-59c333b6-1517-44c0-a4d5-49fcfb921500.png)
+![GPT gaslighting me](https://user-images.githubusercontent.com/77915/227932059-67c6fc88-2b8c-4dfa-bb90-d64c63f41cba.png)
 
-In this instance, GPT3.5 told me the answer was to change the spec 😅
+What.
 
 ![Claude denying reality](https://user-images.githubusercontent.com/77915/227919974-aa726729-cfbb-43d1-8811-1e0fe4b88cc3.png)
 
