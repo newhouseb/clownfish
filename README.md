@@ -127,7 +127,7 @@ I looked around to see what level of sophistication existed around these buildin
 
 Because “LogitProcessor” is a mouthful and I like to name things, I call these fancy processors “***ControLogits***” (named in homage to [ControlNet](https://github.com/lllyasviel/ControlNet) which is notionally in the same spirit). They slot in as depicted below:
 
-![An LLM with a ControLogit attached](https://user-images.githubusercontent.com/77915/227920174-311caab5-c6e7-4d9a-bf3f-ba0f68e55ff9.png)
+![An LLM with a ControLogit attached](https://user-images.githubusercontent.com/77915/228027062-fb48ef71-ac14-47bc-a7ef-54ac0e1d3135.png)
 
 Now, let’s make this a little more real:
 
