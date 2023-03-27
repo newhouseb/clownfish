@@ -46,11 +46,11 @@ In particular there’s one type that we’ve designed in such a way that Claude
 
 ![GPT3.5 playing gaslighter in chief](https://user-images.githubusercontent.com/77915/227919924-59c333b6-1517-44c0-a4d5-49fcfb921500.png)
 
-GPT3.5 playing gaslighter in chief
+In this instance, GPT3.5 told me the answer was to change the spec 😅
 
-![Claude trying to do the same](https://user-images.githubusercontent.com/77915/227919974-aa726729-cfbb-43d1-8811-1e0fe4b88cc3.png)
+![Claude denying reality](https://user-images.githubusercontent.com/77915/227919974-aa726729-cfbb-43d1-8811-1e0fe4b88cc3.png)
 
-Claude trying to do the same
+I don't even.
 
 
 > 💡 This approach might remind you of the recently announce ChatGPT plugins and you would be correct! These plugins [seem to](https://twitter.com/john_sungjin/status/1639051499576918016) *also* feed typescript in to the prompt and ask the model to emit JSON for API calls. 
