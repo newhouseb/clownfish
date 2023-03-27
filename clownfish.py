@@ -513,12 +513,13 @@ import numpy as np
 import torch
 
 class StreamingParserStoppingCriteria(StoppingCriteria):
-  def __init__(self, parser, prompt):
+  def __init__(self, tokenizer, parser, prompt):
+    self.tokenizer = tokenizer
     self.parser = parser
     self.prompt = prompt
     
   def __call__(self, input_ids: torch.LongTensor, scores: torch.FloatTensor) -> bool:
-    prefix = tokenizer.decode(input_ids[0])[len(self.prompt):]
+    prefix = self.tokenizer.decode(input_ids[0])[len(self.prompt):]
     parser = self.parser
     for c in prefix:
       parser = parser.step(parser, c)
@@ -528,7 +529,8 @@ class StreamingParserStoppingCriteria(StoppingCriteria):
     return parser.completed
 
 class StreamingParserLogitsProcessor(LogitsProcessor):
-  def __init__(self, parser, prompt, prev_processor=None):
+  def __init__(self, tokenizer, parser, prompt, prev_processor=None):
+    self.tokenizer = tokenizer
     self.parser = parser
     self.prompt = prompt
     self.prev_processor = prev_processor
@@ -537,6 +539,8 @@ class StreamingParserLogitsProcessor(LogitsProcessor):
     if self.prev_processor:
         scores = self.prev_processor(input_ids, scores)
     
+    tokenizer = self.tokenizer
+
     # First build up the parser on the context so far
     prefix = tokenizer.decode(input_ids[0])[len(self.prompt):]
     parser = self.parser
@@ -581,7 +585,7 @@ class StreamingParserLogitsProcessor(LogitsProcessor):
 
     return scores
     
-def create(tokenizer, model, cls, prompt):
+def create(tokenizer, model, device, cls, prompt):
     schema = json.loads(cls.schema_json())
     parser = parser_for_type(schema, schema)
     
@@ -592,8 +596,8 @@ def create(tokenizer, model, cls, prompt):
         max_length=500,
         do_sample=False,
         num_return_sequences=1,
-        logits_processor=[StreamingParserLogitsProcessor(parser, prompt)],#, prev_processor=NoRepeatNGramLogitsProcessor(2))],
-        stopping_criteria=[StreamingParserStoppingCriteria(parser, prompt)],
+        logits_processor=[StreamingParserLogitsProcessor(tokenizer, parser, prompt)],#, prev_processor=NoRepeatNGramLogitsProcessor(2))],
+        stopping_criteria=[StreamingParserStoppingCriteria(tokenizer, parser, prompt)],
         output_scores=True,
         return_dict_in_generate=True,
         renormalize_logits=True
@@ -611,7 +615,7 @@ def create(tokenizer, model, cls, prompt):
 from pydantic import BaseModel
 import openai
 
-def create_api(cls, orig_prompt, max_tokens, confidence=20, call=openai.Completion.create):
+def create_api(tokenizer, cls, orig_prompt, max_tokens, confidence=20, call=openai.Completion.create):
     schema = json.loads(cls.schema_json())
 
     orig_parser = parser_for_type(schema, schema)
