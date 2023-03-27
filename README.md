@@ -3,7 +3,7 @@ Circa March 27, 2023. Ben Newhouse
 
 *TL;DR: Constrained Decoding with a Streaming JSON Schema Parser is Neat*
 
-The beauty and genius of the ChatGPT interface is that it puts humans in the feedback loop to ensure the actions taken by ChatGPT are well aligned with our interests. Humans (the O.G.  “General Intelligence”) are fantastically resilient to slight errors and inconsistencies and we are endlessly forgiving of technologies that seem like magic. And yet, while many of us *enjoy* chatting with LLMs they will only reach their full leverage when they can safely and correctly operate *without* humans in the loop.
+The beauty and genius of ChatGPT is that it puts humans in the feedback loop to ensure the actions taken by ChatGPT are well aligned with our interests. Humans (the O.G.  “General Intelligence”) are fantastically resilient to slight errors and inconsistencies and we are endlessly forgiving of technologies that seem like magic. And yet, while many of us *enjoy* chatting with LLMs they will only reach their full leverage when they can safely and correctly operate *without* humans in the loop.
 
 But if you take away the human in the middle and no longer provide real-time feedback and validation of generated text and a couple big challenges emerge:
 
