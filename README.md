@@ -1,4 +1,4 @@
-# Structural Alignment: Modifying Transformers like GPT to Follow a JSON Schema
+# Structural Alignment: Modifying Transformers (like GPT) to Follow a JSON Schema
 
 Circa March 27, 2023. Ben Newhouse
 
