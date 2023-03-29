@@ -102,7 +102,7 @@ This is what most of us do when working with ChatGPT. When it gets things wrong,
 
 As compared to fine-tuning, this has a couple of challenges:
 
-1. It’s can consume a lot of context space, which can cost $$$
+1. It can consume a lot of context space, which can cost $$$
 2. It slows things down
 3. It doesn’t always work (see above)
 
