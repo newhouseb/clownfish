@@ -1,4 +1,4 @@
-# Structural Alignment of LLMs with ControLogits
+# Structural Alignment of LLMs
 Circa March 27, 2023. Ben Newhouse
 
 *TL;DR: Constrained Decoding with a Streaming JSON Schema Parser is Neat*
