@@ -1,4 +1,5 @@
-# Structural Alignment of LLMs
+# Structural Alignment: Modifying Transformers like GPT to Follow a JSON Schema
+
 Circa March 27, 2023. Ben Newhouse
 
 *TL;DR: Constrained Decoding with a Streaming JSON Schema Parser is Neat*
