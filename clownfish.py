@@ -519,7 +519,7 @@ class StreamingParserStoppingCriteria(StoppingCriteria):
     self.prompt = prompt
     
   def __call__(self, input_ids: torch.LongTensor, scores: torch.FloatTensor) -> bool:
-    prefix = self.tokenizer.decode(input_ids[0])[len(self.prompt):]
+    prefix = self.tokenizer.decode(input_ids[0], skip_special_tokens=True)[len(self.prompt):]
     parser = self.parser
     for c in prefix:
       parser = parser.step(parser, c)
@@ -542,7 +542,7 @@ class StreamingParserLogitsProcessor(LogitsProcessor):
     tokenizer = self.tokenizer
 
     # First build up the parser on the context so far
-    prefix = tokenizer.decode(input_ids[0])[len(self.prompt):]
+    prefix = tokenizer.decode(input_ids[0], skip_special_tokens=True)[len(self.prompt):]
     parser = self.parser
     for c in prefix:
       parser = parser.step(parser, c)
